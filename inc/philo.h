@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:51:17 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/07 11:36:03 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 12:52:32 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_data
 
 // MAIN.C
 void	*routine(void *args);
+void	init_threads(t_data *data);
 
 // UTILS.C
 long int		ft_atoi(const char *str);
