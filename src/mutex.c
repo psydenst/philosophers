@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:39:01 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/06 22:21:01 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 11:19:10 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void *monitoring(void *args)
 		}
 				//simulation_over();
 		pthread_mutex_unlock(&data->monitor);
+		usleep(100);
 		i++;
 	}
 	//pthread_mutex_destroy(&data->monitor);

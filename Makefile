@@ -14,7 +14,7 @@ CC = cc
 
 AR = ar -rcs
 
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 
 RM = rm -rf 
 

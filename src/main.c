@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:11:59 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/06 22:31:53 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 12:18:08 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void *routine(void *args)
 			break ;
 		}
 		pthread_mutex_unlock(&philos->data->monitor);
-		fork_ph(philos);
 		to_eat(philos);	
 		to_sleep(philos);
 		to_think(philos);
@@ -68,6 +67,14 @@ void	exception(t_data *data)
 		usleep(data->time_to_die * 1000);
 		printf("%llims 1 is dead\n", (long long) data->time_to_die);
 	}
+	if (data->nbr_ph == 0)
+		printf("Wrong input!\n");
+}
+
+void	freeing(t_data *data)
+{
+	free(data->philos);
+	free(data->mutex);
 }
 
 int main(int argc, char *argv[])
@@ -79,7 +86,7 @@ int main(int argc, char *argv[])
 	i = 0;
 	if (verification_main(argc, argv, &data) != 1)
 		return (0);
-	if (data.nbr_ph == 1)
+	if (data.nbr_ph == 1 || data.nbr_ph == 0)
 	{
 		exception(&data);
 		return (0);
@@ -102,5 +109,6 @@ int main(int argc, char *argv[])
  	}
 	pthread_join(ver, NULL);
  	ft_mutex_destroy(&data);
+	// freeing(&data);
 	return (0);
 }

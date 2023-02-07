@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:06:53 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/06 19:32:11 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 11:54:02 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void    philosophai(t_data *data)
 {
     int     i;
 
-    data->philos = malloc(sizeof(t_philo *) * data->nbr_ph);
+    data->philos = malloc(sizeof(t_philo) * data->nbr_ph);
     i = 0;
     data->death = 0;
     while (i < data->nbr_ph)

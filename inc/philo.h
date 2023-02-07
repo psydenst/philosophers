@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:51:17 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/06 22:21:33 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 11:36:03 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void    to_eat(t_philo *ph);
 void    to_sleep(t_philo *ph);
 void	to_think(t_philo *ph);
 void    to_die(t_data *data, int i);
+void	printf_safe(long long time, t_philo *ph, char * message);
 
 // VERIFICATION.C
 int verification_main(int argc, char *argv[], t_data *data);
