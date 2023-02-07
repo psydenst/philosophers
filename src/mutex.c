@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:39:01 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/07 12:34:40 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:54:18 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_mutex_init(t_data *data)
 {
-	int i; 
+	int	i;
 
-	i = 0; 
+	i = 0;
 	data->mutex = malloc(data->nbr_ph * sizeof(t_mutex));
 	while (i < data->nbr_ph)
 	{
@@ -28,28 +28,34 @@ void	ft_mutex_init(t_data *data)
 
 void	ft_mutex_destroy(t_data *data)
 {
-	int i; 
+	int	i;
 
-	i = 0; 
+	i = 0;
 	while (i < data->nbr_ph)
 	{
 		pthread_mutex_destroy(&data->mutex[i]);
 		i++;
 	}
-	free(data->mutex);
+	free (data->mutex);
 }
 
-void	simulation_over(void )
+int	is_bigger(long long a, long long last_meal, t_data *data)
 {
-		exit(0);
+	long long	now;
+
+	now = ft_present(a, last_meal);
+	if (now > data->time_to_die)
+		return (1);
+	else
+		return (0);
 }
 
-void *monitoring(void *args)
+void	*monitoring(void *args)
 {
-	int	i;
-	long long a;
-	t_data *data;
-	
+	int			i;
+	long long	a;
+	t_data		*data;
+
 	data = (t_data *)args;
 	i = 0;
 	while (1)
@@ -59,49 +65,30 @@ void *monitoring(void *args)
 		pthread_mutex_lock(&data->monitor);
 		a = ft_time_in_mls();
 		if (data->philos[i].meals > 0 && data->philos[i].last_meal != 0)
-			if (ft_present(a, data->philos[i].last_meal) > data->time_to_die)
+			if (is_bigger(a, data->philos[i].last_meal, data))
 			{
-				// printf("%i meals de philo %i\n", data->philos[i].meals, data->philos[i].id);
-				// printf("last meal de %i %lli\n", data->philos[i].id, data->philos[i].last_meal);
-				// printf("philos[].id: %i a - last_meal: %lli\n", data->philos[i].id, ft_present(a, data->philos[i].last_meal));
 				data->death = i + 1;
 				pthread_mutex_unlock(&data->monitor);
 				return (0);
-				//to_die(data, i);
-				//simulation_over();
 			}
-		// if (ft_present(ft_time_in_mls(), data.philos[i].last_meal) > data->time_to_die)
-		if (data->argc == 6)
-		{
-			if (meal_amount(data) == 1)
-			{
-				data->death = -1;
-				pthread_mutex_unlock(&data->monitor);
-				return (0);
-
-			}
-		}
-				//simulation_over();
-		pthread_mutex_unlock(&data->monitor);
-		usleep(100);
+		monitoring2(data);
 		i++;
 	}
 	pthread_mutex_destroy(&data->monitor);
 }
 
-int	meal_amount(t_data *data)
+void	*monitoring2(t_data *data)
 {
-	int i;
-	int a;
-
-	i = 0;
-	a = data->nbr_ph;
-	while (a--)
+	if (data->argc == 6)
 	{
-		if (data->philos[i].meals >= data->nbr_ph_eat)
-			i++;
-		else
+		if (meal_amount(data) == 1)
+		{
+			data->death = -1;
+			pthread_mutex_unlock(&data->monitor);
 			return (0);
+		}
 	}
-	return (1);
+	pthread_mutex_unlock(&data->monitor);
+	usleep(100);
+	return (0);
 }

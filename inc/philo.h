@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:51:17 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/07 12:52:32 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:52:31 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int	ft_strdigit2(char **joker, int i, int offset, int number);
 
 // POPULATE_PHIL.C
 void    philosophai(t_data *data);
+int		meal_amount(t_data *data);
 
 // FORKS.C
 void	fork_ketron(t_data *data, t_philo *philos);
@@ -94,6 +95,6 @@ void    ft_mutex_init(t_data *data);
 void	*monitoring(void *args);
 void	ft_mutex_destroy(t_data *data);
 void	simulation_over(void);
-int	meal_amount(t_data *data);
+void	*monitoring2(t_data *data);
 
 #endif

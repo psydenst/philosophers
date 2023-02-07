@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 12:22:46 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/07 12:22:49 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 14:49:21 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,21 +62,28 @@ int	ft_strdigit2(char **joker, int i, int offset, int number)
 	return (1);
 }
 
-int verification_main(int argc, char *argv[], t_data *data)
+int	verification_main(int argc, char *argv[], t_data *data)
 {
-    t_count count;
+	t_count	count;
 
-    if (argc < 5 || argc > 6)
-        return(printf("Wrong number of arguments"));  
-    if (ft_strdigit(argv, &count) == 0)
-        return (printf("Non-numeric input :/"));
-    data->nbr_ph = ft_atoi(argv[1]);
-    data->time_to_die = ft_atoi(argv[2]);
-    data->time_to_eat = ft_atoi(argv[3]);
-    data->time_to_sleep = ft_atoi(argv[4]);
+	if (argc < 5 || argc > 6)
+		return (printf("Wrong number of arguments"));
+	if (ft_strdigit(argv, &count) == 0)
+		return (printf("Non-numeric input :/"));
+	data->nbr_ph = ft_atoi(argv[1]);
+	data->time_to_die = ft_atoi(argv[2]);
+	data->time_to_eat = ft_atoi(argv[3]);
+	data->time_to_sleep = ft_atoi(argv[4]);
 	data->nbr_ph = data->nbr_ph;
 	data->argc = argc;
-    if (argc == 6 )
-        data->nbr_ph_eat = ft_atoi(argv[5]);
-    return (1);
+	if (data->nbr_ph < 1 || data->time_to_die < 1 || data->time_to_eat < 0
+		|| data->time_to_sleep < 1)
+		return (printf("Non-positive input :/\n"));
+	if (argc == 6)
+	{
+		data->nbr_ph_eat = ft_atoi(argv[5]);
+		if (data->nbr_ph_eat < 1)
+			return (printf("Non-positive input :/\n"));
+	}
+	return (1);
 }
