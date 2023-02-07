@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:48:18 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/07 14:53:16 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:55:22 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	fork_coordenation(t_philo *philos, int i)
 	philos[i].right_fork = ft_get_rfork(&philos[i]);
 }
 
-void	fork_ketron(t_data *data, t_philo *philos)
+void	fork_main(t_data *data, t_philo *philos)
 {
 	int	i;
 

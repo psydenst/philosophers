@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 20:11:59 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/07 14:26:27 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:57:45 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	ft_mutex_init(&data);
-	philosophai(&data);
-	fork_ketron(&data, data.philos);
+	philosophing(&data);
+	fork_main(&data, data.philos);
 	init_threads(&data);
 	freeing(&data);
 	return (0);

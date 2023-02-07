@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:40:29 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/07 15:52:48 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:18:28 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ long int	ft_atoi(const char *str)
 
 long	long	ft_time_in_mls(void)
 {
-	struct timeval	time; 
-	
+	struct timeval	time;
+
 	gettimeofday(&time, NULL);
 	return ((((time.tv_sec * 1000) + (time.tv_usec / 1000))));
 }
@@ -55,8 +55,8 @@ long	long	ft_present(long long now, long long then)
 
 void	hypnos(long long time, t_data *data)
 {
-	long	long	then;
-	long	long	now;
+	long long	then;
+	long long	now;
 
 	then = ft_time_in_mls();
 	while (1)
@@ -70,7 +70,7 @@ void	hypnos(long long time, t_data *data)
 		pthread_mutex_unlock(&data->monitor);
 		now = ft_time_in_mls();
 		if (ft_present(now, then) >= time)
-			break;
+			break ;
 		usleep(250);
 	}
 }

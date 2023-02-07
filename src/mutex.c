@@ -6,7 +6,7 @@
 /*   By: psydenst <psydenst@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 19:39:01 by psydenst          #+#    #+#             */
-/*   Updated: 2023/02/07 15:54:18 by psydenst         ###   ########.fr       */
+/*   Updated: 2023/02/07 17:50:51 by psydenst         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,14 @@ void	*monitoring(void *args)
 		pthread_mutex_lock(&data->monitor);
 		a = ft_time_in_mls();
 		if (data->philos[i].meals > 0 && data->philos[i].last_meal != 0)
+		{
 			if (is_bigger(a, data->philos[i].last_meal, data))
 			{
 				data->death = i + 1;
 				pthread_mutex_unlock(&data->monitor);
 				return (0);
 			}
+		}
 		monitoring2(data);
 		i++;
 	}
