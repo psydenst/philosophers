@@ -23,7 +23,7 @@ HEADER = inc/philo.h
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	${CC} -g -I ${HEADER} ${CFLAGS} ${OBJS} -o $(NAME)
+	${CC} -I ${HEADER} ${CFLAGS} ${OBJS} -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
