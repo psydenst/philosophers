@@ -1,7 +1,11 @@
 # philosophers
+<h1 align="center">
+	📖 Philosophers
+</h1>
 
-📖 Philosophers
-Thread`s processing, mutex and much more. 
+<p align="center">
+	<b><i>Thread's processing, mutex and thread shared data.</i></b><br>
+</p>
 
 Philosophers an individual 42 project about introduction to the basics of process threading. The main learnings from this project are about the use of threads, mutex and thread's shared data. 
 
