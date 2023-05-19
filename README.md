@@ -26,7 +26,7 @@ git clone https://github.com/psydenst/philosophers
 ```
 cd philosophers && make
 ```
-Then run ./philo with argumentos time_to_die, time_to_eat, time_to_sleep and, as non-required option, number_of_time_each_philosophers_must_eat
+Then run ./philo with arguments time_to_die, time_to_eat, time_to_sleep and, as non-required option, number_of_time_each_philosophers_must_eat
 
 Ex: 
 ```
