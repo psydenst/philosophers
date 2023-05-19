@@ -7,13 +7,13 @@
 	<b><i>Thread's processing, mutex and thread shared data.</i></b><br>
 </p>
 
-Philosophers an individual 42 project about introduction to the basics of process threading. The main learnings from this project are about the use of threads, mutex and thread's shared data. 
+Philosophers is an individual 42 project about introduction to the basics of process threading. The main learnings from this project are about the use of threads, mutex and thread's shared data. 
 
 
 Introduction
 In computer science, the dining philosophers problem is an example problem often used in concurrent algorithm design to illustrate synchronization issues and techniques for resolving them.
 
-It was originally formulated in 1965 by Edsger Dijkstra as a student exam exercise, presented in terms of computers competing for access to tape drive peripherals. Soon after, Tony Hoare gave the problem its present formulation
+It was originally formulated in 1965 by Edsger Dijkstra as a student exam exercise, presented in terms of computers competing for access to tape drive peripherals. Soon after, Tony Hoare gave the problem its present formulation.
 
 More informations
 
