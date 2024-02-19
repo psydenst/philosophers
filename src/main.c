@@ -12,7 +12,6 @@
 
 #include <stdio.h>
 #include "../inc/philo.h"
-#include <pthread.h>
 
 void	*routine(void *args)
 {
