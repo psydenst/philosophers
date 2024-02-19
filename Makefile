@@ -36,4 +36,4 @@ run: all
 	clear
 	./${NAME} 5 800 200 200
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean bonus re
